@@ -34,5 +34,10 @@ namespace Bakery.Models
     {
       Orders.Add(order);
     }
+
+    public static Vendor Find(int id)
+    {
+      return _instances[id - 1];
+    }
   }
 }
