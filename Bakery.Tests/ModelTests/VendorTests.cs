@@ -59,5 +59,20 @@ namespace Bakery.Tests
       Assert.AreEqual(description, result);
     }
 
+    [TestMethod]
+    public void SetDescription_SetDescription_String()
+    {
+      //Arrange
+      string description = "Vendor Description";
+      Vendor newVendor = new Vendor("Vendor Name", description);
+
+      //Act
+      string updatedDescription = "Coffee Shop";
+      newVendor.Description = updatedDescription;
+      string result = newVendor.Description;
+
+      //Assert
+      Assert.AreEqual(updatedDescription, result);
+    }
   }
 }
