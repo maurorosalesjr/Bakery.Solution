@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    @using Bakery.Models;
+    <meta charset="utf-8">
+    <title>Show Vendors!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <h2>Orders for: @Model["vendor"].Name</h2>
+    <h2>Description: @Model["vendor"].Description</h2>
+    <h2>Orders: @Model["vendor"].Orders.Count</h2>
+    <ol>
+      @foreach (Orders order in @Model["orders"])
+      {
+        <li><a href='/vendor/@Model["vendor"].Id/orders/@order.Id'>@order.Description</a></li>
+      }
+    </ol>
+    <br>
+    <h3><a href='/vendor/@Model["vendor"].Id/orders/new'>Add an Order</a></h3>
+    <h3><a href='/vendor'>Return to Vendor</a></h3>
+    <h3><a href='/'>Return Home</a></h3>
+  </body>
+</html>

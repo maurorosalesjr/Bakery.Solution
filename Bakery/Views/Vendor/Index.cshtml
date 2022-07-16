@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    @using Bakery.Models;
+    <meta charset="utf-8">
+    <title>Vendors!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Vendors</h1>
+    @if (Model.Count == 0)
+    {
+      <h2>You don't have any vendors.</h2>
+    }
+
+    @foreach (Vendor vendor in Model)
+    {
+      <h3><a href="/vendor/@vendor.Id">@vendor.Name: @vendor.Description</a></h3>
+    }
+    <h2><a href="/">Return Home</a></h2>
+  </body>
+</html>
