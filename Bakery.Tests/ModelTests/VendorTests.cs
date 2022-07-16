@@ -126,5 +126,21 @@ namespace Bakery.Tests
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
+
+    [TestMethod]
+    public void Find_ReturnsCorrectVendor_Vendor()
+    {
+      //Arrange
+      string name1 = "Vendor Test one";
+      string name2 = "Test Vendor two";
+      Vendor newVendor1 = new Vendor(name1, "test description");
+      Vendor newVendor2 = new Vendor(name2, "Test description");
+
+      //Act
+      Vendor result = Vendor.Find(2);
+
+      //Assert
+      Assert.AreEqual(newVendor2, result)
+    }
   }
 }
