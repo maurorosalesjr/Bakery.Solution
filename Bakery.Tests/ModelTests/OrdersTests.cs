@@ -59,7 +59,7 @@ namespace Bakery.Tests
       Assert.AreEqual(price, result);
     }
 
-    [Test Method]
+    [TestMethod]
     public void GetDate_ReturnOrderDate_String()
     {
       //Arrange
@@ -73,5 +73,21 @@ namespace Bakery.Tests
       Assert.AreEqual(date, result);
     }
 
+    [TestMethod]
+    public void GetAll_ReturnsAllOrders_OrdersList()
+    {
+      //Arrange
+      string title1 = "croissants";
+      string title2 = "danish";
+      Orders newOrder1 = new Orders(title1, "description", 1, "date");
+      Orders newOrder2 = new Orders(title2, "description", 2, "date");
+      List<Orders> newList = new List<Orders> { newOrder1, newOrder2 };
+
+      //Act
+      List<Orders> result = Orders.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
