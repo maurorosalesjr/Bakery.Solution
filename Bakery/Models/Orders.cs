@@ -4,6 +4,7 @@ namespace Bakery.Models
 {
   public class Orders
   {
+    private static List<Orders> _instances = new List<Orders>();
     public string Title { get; set; }
     public string Description { get; set; }
     public int Price { get; set; }
@@ -15,6 +16,17 @@ namespace Bakery.Models
       Description = description;
       Price = price;
       Date = date;
+      _instances.Add(this);
+    }
+
+    public static List<Orders> GetAll()
+    {
+      return _instances;
+    }
+
+    public static void ClearAll()
+    {
+      _instances.Clear();
     }
   }
 }
