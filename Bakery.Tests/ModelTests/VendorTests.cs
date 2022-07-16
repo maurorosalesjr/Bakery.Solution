@@ -34,7 +34,7 @@ namespace Bakery.Tests
     {
       //Arrange
       string name = "Vendor Test";
-      Vendot newVendor = new Vendor(name, "Vendor Description");
+      Vendor newVendor = new Vendor(name, "Vendor Description");
 
       //Act
       string updatedName = "Test Vendor";
@@ -42,7 +42,22 @@ namespace Bakery.Tests
       string result = newVendor.Name;
 
       //Assert
-      Assert.AreEqual(updatedName, result)
+      Assert.AreEqual(updatedName, result);
     }
+
+    [TestMethod]
+    public void GetVendorDescription_ReturnVendorDescription_String()
+    {
+      //Arrange
+      string description = "Vendor Description";
+      Vendor newVendor = new Vendor("Vendor Name", description);
+
+      //Act
+      string result = newVendor.Description;
+
+      //Assert
+      Assert.AreEqual(description, result);
+    }
+
   }
 }
