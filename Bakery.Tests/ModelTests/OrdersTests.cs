@@ -21,14 +21,29 @@ namespace Bakery.Tests
     public void GetTitle_ReturnTitle_String()
     {
       //Arrange
-      string title = "croissants"
+      string title = "croissants";
       Orders newOrder = new Orders(title, "Description", 1, "Date");
 
       //Act
       string result = newOrder.Title;
 
       //Assert
-      Assert.AreEqual(title, result)
+      Assert.AreEqual(title, result);
     }
+
+    [TestMethod]
+    public void GetOrderDescription_ReturnOrderDescription_String()
+    {
+      //Arrange
+      string description = "buttery flakey";
+      Orders newOrder = new Orders("Title", description, 1, "Date");
+
+      //Act
+      string result = newOrder.Description;
+
+      //Assert
+      Assert.AreEqual(description, result);
+    }
+
   }
 }
