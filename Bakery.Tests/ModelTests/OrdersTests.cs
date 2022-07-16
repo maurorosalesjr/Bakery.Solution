@@ -59,5 +59,19 @@ namespace Bakery.Tests
       Assert.AreEqual(price, result);
     }
 
+    [Test Method]
+    public void GetDate_ReturnOrderDate_String()
+    {
+      //Arrange
+      string date = "7/15/2022";
+      Orders newOrder = new Orders("Title", "Description", 1, date);
+
+      //Act
+      string result = newOrder.Date;
+
+      //Assert
+      Assert.AreEqual(date, result);
+    }
+
   }
 }

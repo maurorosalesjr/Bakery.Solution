@@ -6,12 +6,14 @@ namespace Bakery.Models
   {
     public string Title { get; set; }
     public string Description { get; set; }
+    public int Price { get; set; }
 
 
     public Orders(string title, string description, int price, string date)
     {
       Title = title;
       Description = description;
+      Price = price;
     }
   }
 }
