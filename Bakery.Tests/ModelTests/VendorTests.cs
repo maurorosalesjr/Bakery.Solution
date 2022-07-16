@@ -6,8 +6,13 @@ using System;
 namespace Bakery.Tests
 {
   [TestClass]
-  public class VendorTests
+  public class VendorTests : IDisposable
   {
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+    }
+
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
@@ -90,6 +95,20 @@ namespace Bakery.Tests
 
       //Assert
       CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+    public void GetId_ReturnVendorId_Int()
+    {
+      //Arrange
+      string name = "Vendor Name";
+      Vendor newVendor = new Vendor(name, "Vendor Description");
+
+      //Act
+      int result = newVendor.Id;
+
+      //Assert
+      Assert.AreEqual(1, result);
     }
   }
 }
