@@ -110,5 +110,21 @@ namespace Bakery.Tests
       //Assert
       Assert.AreEqual(1, result);
     }
+
+    [TestMethod]
+    public void AddOrder_ReturnsVendorOrder_OrderList()
+    {
+      //Arrange
+      Orders newOrder = new Orders("Croissants", "buttery", 1, "7/15/2022");
+      Vendor newVendor = new Vendor("Suzie's Cafe", "Small cafe in busy part of town");
+      newVendor.AddOrder(newOrder);
+      List<Orders> newList = new List<Orders> { newOrder };
+
+      //Act
+      List<Orders> result = newVendor.Orders;
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
